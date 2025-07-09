@@ -1,7 +1,7 @@
 ---
 - name: Iniciando o Argocd
   hosts: webservers
-  become: no
+  become: yes
 
   tasks:
   - name: Expondo as portas
