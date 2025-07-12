@@ -1,4 +1,0 @@
----
-- name: Criação dos Banco de Dados
-  hosts: webservers
-  become: yes
