@@ -39,14 +39,29 @@ ssh-copy-id -i <caminho da chave gerada> vagrant@<ip da maquina virtual gerada>
 
 # Na pasta do ansible |
 
-ansible-playbook -i hosts install_nginx.yml install_docker.yml install_kind.yml install_kubectl.yml
-
+ansible-playbook -i hosts install_nginx.yml
+ansible-playbook -i hosts install_docker.yml
+ansible-playbook -i hosts install_kind.yml
+ansible-playbook -i hostsinstall_kubectl.yml
 ansible-playbook -i hosts raise_nodes.yml
-
 ansible-playbook -i hosts install_argocd.yml
 
 # Após ter executado todos os comandos, caso deseje hostear o argocd novamente, basta executar o seguinte comando:
 
 ansible-playbook -i hosts start_argocd.yml
 
+~~~
+
+- # 4 Argocd
+Após a utilização de todos os playbooks o ambiente virtual estará pronto e para que as aplicações sejam executadas será necessario que adicione elas às aplicações do Argocd, para fazer isso basta acessar a porta 8080 da maquina e então logar no Argocd coma o usuario admin e a senha gerada pelo seguinte comando:
+~~~
+kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | base64 -d; echo
+~~~
+Após isso você deve clicar na opção de adicionar aplicação. Nesta opção você irá colocar um nome para a aplicação (em letras minuscualas), um link para o repositório da aplicação, selecionar as opções prune default.
+
+
+- # 5 Exportar os IPs
+Para exportas os IPs da aplicação basta executar o seguinte comando em diferentes terminais, para o front e o back end.
+~~~
+kubectl port-forward svc/<nome da aplicação> -n argocd --address 0.0.0.0 <A porta para qual a aplicação será esxportada>:<A porta da aplicação>
 ~~~
