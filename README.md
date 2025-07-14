@@ -57,7 +57,7 @@ Após a utilização de todos os playbooks o ambiente virtual estará pronto e p
 ~~~
 kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | base64 -d; echo
 ~~~
-Após isso você deve clicar na opção de adicionar aplicação. Nesta opção você irá colocar um nome para a aplicação (em letras minuscualas), um link para o repositório da aplicação, selecionar as opções prune default.
+Após isso você deve clicar na opção de adicionar aplicação. Nesta opção você irá colocar um nome para a aplicação (em letras minuscualas), um link para o repositório da aplicação, selecionar as opções prune last, auto create namespace apply out of sync only, nomeie a aplicação como default, selecione o caminho do k8s.
 
 
 - # 5 Exportar os IPs
