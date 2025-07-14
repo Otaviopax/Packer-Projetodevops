@@ -28,6 +28,12 @@ Foram criados scripts de códigos individualmente para: A instalação do Nginx;
  A instalação do Argocd e suas dependências foi realizada através do Ansible, bem como a exposição de sua porta. Todos os repositórios do Github tinham secrets que continham o usuário e o token do DockerHub, a configuração dos repositórios foram feitas de forma que fosse possível a execução dos actions sem nenhum problema.
 
  O deploy da aplicação foi executada de maneira automatizada através do Github Actions permitindo que o projeto funcionasse seguindo os conceitos de integração e entrega contínua. Após a execução do actions as aplicações são sincronizadas dentro do Argocd.
+ Aqui seguem as imagens do Argocd em execução: 
+<img width="1466" height="834" alt="Captura de tela de 2025-07-14 09-33-48" src="https://github.com/user-attachments/assets/add684cd-8475-4657-91ef-7f02d2846f15" />
+<img width="1466" height="834" alt="image" src="https://github.com/user-attachments/assets/f2b02b15-eae7-4992-8adc-beba45514bff" />
+<img width="1245" height="787" alt="image" src="https://github.com/user-attachments/assets/61bb9df1-3d3e-4cb9-a15d-77c59d6552d1" />
+<img width="1247" height="787" alt="image" src="https://github.com/user-attachments/assets/c1a9521f-a811-4cb1-a86a-c9be93f44ccd" />
+
 
 ## 6. Aplicação
 
